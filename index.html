@@ -87,7 +87,17 @@
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
-            
+            var sound1 = new Audio('voice.mp3');
+            setInterval(() => {
+                if (status) {
+                    /*document.getElementById("audio").innerHTML = `
+                <audio id="Test_Audio" controls autoplay>
+                    <source src="voice.mp3" type="audio/mpeg">
+                </audio>
+                `;*/
+                sound1.play();
+                }
+            }, 20000);
         }
         async function loop() {
             webcam.update(); // update the webcam frame
@@ -110,14 +120,6 @@
 </svg></h1></h2>`
                     status = true;
                     labelContainer.childNodes[i].innerHTML = classPrediction;
-                    setInterval(() => {
-                if (status == true) {
-                    document.getElementById("audio").innerHTML = `
-                <audio id="Test_Audio" controls autoplay>
-                    <source src="voice.mp3" type="audio/mpeg">
-                </audio>`;
-                }
-            }, 20000);
                     break;
                 } else {
                     //console.log("KHÁCH HÀNG ĐÃ ĐEO KHẨU TRANG")
@@ -126,14 +128,6 @@
 </svg></h1></h2>`
                     status = false;
                     labelContainer.childNodes[i].innerHTML = classPrediction;
-                    setInterval(() => {
-                if(status == false){
-                	document.getElementById("audio").innerHTML = `
-                <audio id="Test_Audio" controls>
-                    <source src="" type="audio/mpeg">
-                </audio>`;
-                }
-            }, 20000);
                     break;
                 }
                 //labelContainer.childNodes[i].innerHTML = classPrediction;
