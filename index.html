@@ -88,19 +88,17 @@
                 labelContainer.appendChild(document.createElement("div"));
             }
             setInterval(() => {
-                if (status) {
+                if (status == true) {
                     document.getElementById("audio").innerHTML = `
                 <audio id="Test_Audio" controls autoplay>
                     <source src="voice.mp3" type="audio/mpeg">
-                </audio>
-                `;
+                </audio>`;
                 }
                 else{
                 	document.getElementById("audio").innerHTML = `
-                <audio id="Test_Audio" controls autoplay>
-                    <source src="" type="audio/mpeg">
-                </audio>
-                `;
+                <audio id="Test_Audio" controls autoplay="false">
+                    <source src="voice.mp3" type="audio/mpeg">
+                </audio>`;
                 }
             }, 20000);
         }
