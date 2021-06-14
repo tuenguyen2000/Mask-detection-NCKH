@@ -66,6 +66,7 @@
         const URL = "https://teachablemachine.withgoogle.com/models/KGd-B8t6P/";
         let model, webcam, labelContainer, maxPredictions;
         // Load the image model and setup the webcam
+        var status;
         async function init() {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
@@ -89,7 +90,7 @@
             }
             var sound1 = new Audio('voice.mp3');
             setInterval(() => {
-                if (status) {
+                if (status == true) {
                     /*document.getElementById("audio").innerHTML = `
                 <audio id="Test_Audio" controls autoplay>
                     <source src="voice.mp3" type="audio/mpeg">
@@ -108,7 +109,6 @@
             window.requestAnimationFrame(loop);
         }
         var classPrediction;
-        var status;
         // run the webcam image through the image model
         async function predict() {
             // predict can take in an image, video or canvas html element
