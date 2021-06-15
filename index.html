@@ -34,19 +34,29 @@
 	h1{
 		color: #33ccff;
 	}
+	h2{
+		font-size: 20px;
+	}
 </style>
 </head>
-<body>
-	<h1 class="text-center">MASK DETECTOR by Group 6</h1>
+<body class="d-flex h-100 text-center text-white bg-dark">
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <main class="px-3">
+    <h1 class="text-center">MASK DETECTOR by Group 6</h1><p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
 	<div class="container">
         <div id="webcam-container" class="d-flex justify-content-center"></div>
-        <br><br>
         <h2 id="label-container" class="text-center"></h2>
-        <br><br>
         <center><button type="button" class="btn btn-primary btn-lg " onclick="init()">Bật Camera</button></center>
     </div>
     <br><br>
     <div id="audio"></div>
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    
+  </footer>
+</div>
+	
 
 
 
@@ -77,7 +87,7 @@
             maxPredictions = model.getTotalClasses();
             // Convenience function to setup a webcam
             const flip = true; // whether to flip the webcam
-            webcam = new tmImage.Webcam(800, 600, flip); // width, height, flip
+            webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
             await webcam.setup(); // request access to the webcam
             await webcam.play();
             window.requestAnimationFrame(loop);
@@ -113,7 +123,7 @@
                 //const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 if (prediction[i].probability.toFixed(2) < prediction[i + 1].probability.toFixed(2)) {
                     //console.log("KHÁCH HÀNG CHƯA ĐEO KHẨU TRANG");
-                    classPrediction = `<h2> TRẠNG THÁI: <h1 style='color:#dc3545'>CHƯA ĐEO KHẨU TRANG <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    classPrediction = `<h2  style="font-size: 25px;"> TRẠNG THÁI: <h1 style='color:#dc3545;font-size: 25px;'>CHƯA ĐEO KHẨU TRANG <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
   <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
 </svg></h1></h2>`
                     status = true;
@@ -121,7 +131,7 @@
                     break;
                 } else {
                     //console.log("KHÁCH HÀNG ĐÃ ĐEO KHẨU TRANG")
-                    classPrediction = `<h2> TRẠNG THÁI: <h1 style='color:#198754'>ĐÃ ĐEO KHẨU TRANG <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                    classPrediction = `<h2  style="font-size: 25px;"> TRẠNG THÁI: <h1 style='color:#198754;font-size: 25px;'>ĐÃ ĐEO KHẨU TRANG <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
   <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
 </svg></h1></h2>`
                     status = false;
