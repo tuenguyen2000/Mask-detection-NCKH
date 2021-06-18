@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico">   
-    <link rel="icon" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" href="https://i.imgur.com/pLJmqHp.png" sizes="16x16">
     <!-- HTML Meta Tags -->
 <title>Mask Detector - AI project</title>
 <meta name="description" content="Mask Detector project by Group 6 with members: Tuệ, Trí,Thanh, Trang, Hiển, Linh and Lecturer: Trần Thành Công">
@@ -30,23 +30,30 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 <style type="text/css">
 	h1{
 		color: #33ccff;
+		background-color:  #4b4b4b ;
 	}
 	h2{
 		font-size: 20px;
+	}
+	#square{
+		margin: 0 auto;
 	}
 </style>
 </head>
 <body class="d-flex h-100 text-center text-white bg-dark">
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <main class="px-3">
-    <h1 class="text-center">MASK DETECTOR by Group 6</h1><p class="lead">This is Group 6's project: building a Mask Detector system to regconize that people wear a face mask or not</p>
+    <h1 class="text-center"><img src="https://i.imgur.com/pLJmqHp.png" width="45px" height="45px"> MASK DETECTOR BY GROUP 6 <img src="https://i.imgur.com/pLJmqHp.png" width="45px" height="45px"></h1><p class="lead">This is Group 6's project: building a Mask Detector system to regconize that people wear a face mask or not</p>
 	<div class="container">
-        <div id="webcam-container" class="d-flex justify-content-center"></div>
+		<div id="square" class=" col-lg-12 justify-content-center align-items-center" style="width: 405px;height:404px; border: solid 2px;">
+        	<div id="webcam-container" class="d-flex justify-content-center"></div>
+    	</div>
         <h2 id="label-container" class="text-center"></h2>
-        <center><button type="button" class="btn btn-primary btn-lg " onclick="init()">Allow Camera</button></center>
+        <center><button type="button" class="btn btn-primary btn-lg " onclick="init()"><i class="fas fa-camera"></i> Allow Camera</button></center>
     </div>
     <br><br>
     <div id="audio"></div>
@@ -73,7 +80,9 @@
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
         // the link to your model provided by Teachable Machine export panel
-        const URL = "https://teachablemachine.withgoogle.com/models/KGd-B8t6P/";
+        //const URL = "https://teachablemachine.withgoogle.com/models/KGd-B8t6P/";
+	//const URL = "https://teachablemachine.withgoogle.com/models/nsI_APZIl/";
+	  const URL = "https://teachablemachine.withgoogle.com/models/3X0eZ362k/";
         let model, webcam, labelContainer, maxPredictions;
         var status;
         // Load the image model and setup the webcam
